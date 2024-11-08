@@ -4,7 +4,7 @@ const todoList = document.getElementById('todo-list');
 
 function addTodo() {
     const todoText = todoInput.value.trim();
-    if (todoText ==='') return;
+    if (todoText === '') return;
     const li = document.createElement('li');
     li.textContent = todoText;
     const deleteBtn = document.createElement('button');
@@ -15,20 +15,19 @@ function addTodo() {
     });
     li.appendChild(deleteBtn);
     todoList.appendChild(li);
-    todoInput.value='';
+    todoInput.value = '';
 }
 
-    addBtn.addEventListener('click', addTodo);
+addBtn.addEventListener('click', addTodo);
 
-    todoInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            addTodo();
-        }    
-    });
-
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./service-worker.js')
-            .then(reg => console.log('Service Worker registrado:', reg))
-            .catch(err => console.error('Error al registrar el Service Worker:', err));
-            
+todoInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        addTodo();
     }
+});
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js')
+        .then(reg => console.log('Service Worker registrado:', reg))
+        .catch(err => console.error('Error al registrar el Service Worker:', err));
+}
