@@ -3,7 +3,7 @@ const addBtn = document.getElementById('add-btn');
 const todoList = document.getElementById('todo-list');
 
 function addTodo() {
-    const todoText = todoInput.ariaValueMax.trim();
+    const todoText = todoInput.value.trim();
     if (todoText ==='') return;
     const li = document.createElement('li');
     li.textContent = todoText;
