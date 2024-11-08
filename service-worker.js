@@ -42,7 +42,7 @@ self.addEventListener('activate', e => {
     });
 
 self.addEventListener('fetch', e => {
-    e.responWidth(
+    e.responWith(
         caches.match(e.request)
         .then(res => {
             if (res) {
